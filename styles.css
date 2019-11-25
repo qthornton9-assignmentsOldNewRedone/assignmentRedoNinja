@@ -35,6 +35,15 @@
     display: inline-block;
 }
 
+.onigiri {
+    background-color: black;
+    height: 40px;
+    width: 40px;
+    display: inline-block;
+    background-image: url("imgGame/onigiri.png");
+    background-size: contain;
+}
+
 #ninjaman {
     background-color: black;
     height: 40px;
@@ -43,4 +52,13 @@
     background-image: url("imgGame/ninja.gif");
     background-size: contain;
     position: absolute;
+}
+
+h3 {
+    display: inline-block;
+}
+
+p {
+    font-size: 16pt;
+    display: inline-block;
 }

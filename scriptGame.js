@@ -1,18 +1,19 @@
 var world = [
     [1,1,1,1,1],
     [1,0,2,2,1],
-    [1,2,1,2,1],
+    [1,3,1,3,1],
     [1,2,0,2,1],
-    [1,0,2,2,1],
-    [1,2,1,2,1],
-    [1,2,0,2,1],
+    [1,0,2,3,1],
+    [1,3,1,2,1],
+    [1,3,0,2,1],
     [1,1,2,1,1],
 ];
 
 var worldDict = {
     0: "blank",
     1: "wall",
-    2: "sushi"
+    2: "sushi",
+    3: "onigiri"
 };
 
 function drawWorld(){
@@ -33,6 +34,8 @@ var ninjaman = {
     y : 1
 }
 
+var score = 0;
+
 function drawNinjaman(){
     document.getElementById('ninjaman').style.top = ninjaman.y * 44 + 'px';
     document.getElementById('ninjaman').style.left = ninjaman.x * 40 + 'px';
@@ -41,16 +44,32 @@ drawNinjaman();
 
 document.onkeydown = function(e){
     if(e.keyCode == 37){ // LEFT
-        ninjaman.x = ninjaman.x-1;
+        if(world[ninjaman.y][ninjaman.x - 1] != 1){
+            ninjaman.x--;
+        }
     }
     if(e.keyCode == 38){ // UP
-        ninjaman.y--;
+        if(world[ninjaman.y - 1][ninjaman.x] != 1){
+            ninjaman.y--;
+        }
     }
     if(e.keyCode == 39){ // RIGHT
-        ninjaman.x++;
+        if(world[ninjaman.y][ninjaman.x + 1] != 1){
+            ninjaman.x++;
+        }
     }
     if(e.keyCode == 40){ // DOWN
-        ninjaman.y++;
+        if(world[ninjaman.y + 1][ninjaman.x] != 1){
+            ninjaman.y++;
+        }
     }
+    if(world[ninjaman.y][ninjaman.x] == 2){
+        document.getElementById("points").innerHTML = score+=10;
+    }
+    if(world[ninjaman.y][ninjaman.x] == 3){
+        document.getElementById("points").innerHTML = score+=5;
+    }
+    world[ninjaman.y][ninjaman.x] = 0;
     drawNinjaman();
+    drawWorld();
 }
