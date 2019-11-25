@@ -1,3 +1,8 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
 #character {
     position: absolute;
     top: 100px;
@@ -5,4 +10,37 @@
     background-image: url("img/down2.png"); 
     width: 59px; 
     height: 86px;
+}
+
+.wall {
+    background-color: green;
+    height: 40px;
+    width: 40px;
+    display: inline-block;
+}
+
+.sushi {
+    background-color: black;
+    height: 40px;
+    width: 40px;
+    display: inline-block;
+    background-image: url("imgGame/sushi.png");
+    background-size: contain;
+}
+
+.blank {
+    background-color: black;
+    height: 40px;
+    width: 40px;
+    display: inline-block;
+}
+
+#ninjaman {
+    background-color: black;
+    height: 40px;
+    width: 40px;
+    display: inline-block;
+    background-image: url("imgGame/ninja.gif");
+    background-size: contain;
+    position: absolute;
 }
